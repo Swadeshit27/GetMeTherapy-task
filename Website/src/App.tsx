@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import LoginSuccessful from "./pages/auth/LoginSuccessful";
 import OuterScreen from "./pages/OuterScreen";
 import PublicRoute from "./components/PublicRoute";
-// import PrivatePage from "./components/PrivatRoute";
+import PrivatePage from "./components/PrivatRoute";
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
           path="/tracking-screen"
           element={
             // <PrivatePage>
-              <Home />
+            <Home />
             // </PrivatePage>
           }
         />
@@ -41,9 +41,9 @@ const App = () => {
         <Route
           path="/login-successful"
           element={
-            // <PrivatePage>
-            <LoginSuccessful />
-            // </PrivatePage>
+            <PrivatePage>
+              <LoginSuccessful />
+            </PrivatePage>
           }
         />
       </Routes>

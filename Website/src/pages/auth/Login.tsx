@@ -33,7 +33,7 @@ const Login: React.FC = () => {
             setLoading(true);
             const { email, password } = values;
             await signInWithEmailAndPassword(auth, email, password);
-            toast.success("Login successful");
+            // toast.success("Login successful");
             navigate("/login-successful");
         } catch (error: any) {
             console.error(error);
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
             setLoading(true);
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
-            toast.success("Login successful");
+            // toast.success("Login successful");
             navigate("/login-successful");
         } catch (error: any) {
             console.error(error);
@@ -56,13 +56,13 @@ const Login: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    }; 
+    };
 
     return (
         <div className=" xs:h-screen   flex items-center justify-center bg-img">
             {loading && <Loader />}
-            <div className="w-full max-xs:h-full max-w-md px-3 xxs:px-5 xs:px-6 py-6 bg-white xs:rounded-xl border xs:my-8">
-                <div className="mb-6">
+            <div className="w-full max-xs:h-full max-w-md px-3 xxs:px-5 xs:px-6 py-12 xs:py-6 bg-white xs:rounded-xl xs:border xs:my-8">
+                <div className="mb-12 xs:mb-6">
                     <h1 className="text-2xl xxs:text-[32px] xxs:leading-[40px] text-heading font-semibold mb-1.5 xs:mb-2 max-w-md">
                         Login to your account.
                     </h1>

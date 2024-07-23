@@ -23,7 +23,7 @@ const LoginSuccessful = () => {
                     </button>
 
                     <button
-                        onClick={async () => (await auth.signOut(), navigate('/'))}
+                        onClick={async () => (await auth.signOut(), navigate('/login'))}
                         className='max-xs:text-sm  text-para1 text-center mt-6 font-medium'
                     >
                         Logout

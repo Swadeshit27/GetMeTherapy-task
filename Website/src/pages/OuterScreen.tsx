@@ -9,19 +9,22 @@ const slides = [
         title: 'We serve incomparable delicacies',
         description:
             'All the best restaurants with their top menu waiting for you, they cant’t wait for your order!!',
-        imgSrc: '/assets/bg-image.png',
+        imgSrc: '/assets/bg-image.webp',
+        bigImg: '/assets/bg-img3.webp'
     },
     {
         title: 'We serve incomparable delicacies  ',
         description:
             'All the best restaurants with their top menu waiting for you, they cant’t wait for your order!! ',
-        imgSrc: '/assets/bg-img2.png'
+        imgSrc: '/assets/bg-img2.webp',
+        bigImg: '/assets/bg-img.webp'
     },
     {
         title: 'We serve incomparable delicacies  ',
         description:
             'All the best restaurants with their top menu waiting for you, they cant’t wait for your order!!  ',
-        imgSrc: '/assets/bg-image.png'
+        imgSrc: '/assets/bg-image.webp',
+        bigImg: '/assets/bg-img4.webp'
     },
 ];
 
@@ -30,21 +33,30 @@ const OuterScreen = () => {
     const navigate = useNavigate();
 
     const navigateScreen = () => {
-        const user = auth.currentUser;
-        if (user) navigate('/tracking-screen');
-        else navigate('/login');
+        auth.onAuthStateChanged(user => {
+            if (user) navigate('/tracking-screen');
+            else navigate('/login');
+        })
     }
 
     return (
         <>
             <div className="w-full h-screen relative flex items-center justify-center">
                 {slides.map((item, i) => (
-                    <img
-                        key={i}
-                        className={`w-full h-full object-cover absolute ${index === slides.indexOf(item) ? 'block' : 'hidden'
-                            }`}
-                        src={item.imgSrc}
-                    />
+                    <>
+                        <img
+                            key={i}
+                            className={`w-full h-full object-cover absolute sm:hidden ${index === slides.indexOf(item) ? 'block' : 'hidden'
+                                }`}
+                            src={item.imgSrc}
+                        />
+                        <img
+                            key={i}
+                            className={`w-full h-full object-cover absolute max-sm:hidden ${index === slides.indexOf(item) ? 'block' : 'hidden'
+                                }`}
+                            src={item.bigImg}
+                        />
+                    </>
                 ))}
                 <div className="w-[311px] h-[400px] xs:w-full max-w-md xs:h-80 bg-main rounded-[48px] xs:rounded-3xl mx-auto mt-auto mb-9 p-6 xs:p-8 z-[999]">
                     <div className="">
@@ -72,7 +84,7 @@ const OuterScreen = () => {
                         </div>
                     </div>
                     {index !== slides.length - 1 ? (
-                        <div className="flex items-center justify-between flex-row mt-16 ">
+                        <div className="flex items-center justify-between flex-row mt-24 xs:mt-16 ">
                             <button
                                 onClick={navigateScreen}
                                 className="z-[999]"
@@ -89,10 +101,10 @@ const OuterScreen = () => {
                     ) : (
                         <div className="flex items-center justify-center flex-row  mt-4">
                             <button
-                                className="relative flex items-center justify-center  rounded-full"
+                                className="relative -rotate-90 flex items-center justify-center  rounded-full"
                                 onClick={navigateScreen}>
                                 <div className="absolute w-[62px] h-[62px] rounded-full bg-white flex items-center justify-center">
-                                    <FaArrowRight size={18} color={'#FE8C00'} />
+                                    <FaArrowRight size={18} color={'#FE8C00'} className='rotate-90' />
                                 </div>
                                 <svg width="94" height="94" viewBox="0 0 36 36">
                                     <circle
@@ -103,7 +115,7 @@ const OuterScreen = () => {
                                         strokeWidth="1"
                                         stroke="#FE9514"
                                     />
-                                    <g rotate="90" origin="18, 18">
+                                    <g rotate="180" origin="18, 18">
                                         <circle
                                             cx="18"
                                             cy="18"

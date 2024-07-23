@@ -71,7 +71,7 @@ const Home: React.FC = () => {
           <SpeedSlider speed={speed} setSpeed={setSpeed} />
           {!getSpeed && <button
             onClick={handleShare}
-            className="w-40 bg-blue-500 text-white rounded-md py-2 flex items-center justify-center gap-x-2 mx-auto mt-2"
+            className="w-40 bg-blue-500 text-white rounded-md py-2.5 flex items-center justify-center gap-x-2 mx-auto mt-2"
           >
             <MdShare />
             <span className="max-xs:text-sm  font-medium ">Share Now</span>

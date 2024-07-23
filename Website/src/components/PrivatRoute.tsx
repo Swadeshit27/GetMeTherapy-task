@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom';
 import { auth } from '../firebase';
 
 const PrivatePage = ({ children }: { children: React.ReactNode }) => {
     const [isAuthenticate, setISAuthenticate] = useState(false);
 
-    useEffect(() => {
-        const user = auth.currentUser; 
+    auth.onAuthStateChanged((user) => {
         if (user) setISAuthenticate(true);
         else setISAuthenticate(false)
-    }, [])
-
+    })
     if (isAuthenticate) {
         return children;
     }

@@ -12,49 +12,18 @@
 }
 
 .bg-img {
-  background-image: url("/assets/bg-img.webp");
+  background-image: url("/assets/bg-img3.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* @media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type='range'] {
-      overflow: hidden;
-      width: 100%;
-      -webkit-appearance: none;
-      background-color: #d4d4d4;
-    }
-    
-   
-    
-    input[type='range']::-webkit-slider-thumb {
-      width: 10px;
-      -webkit-appearance: none;
-      height: 10px;
-      cursor: ew-resize;
-      background: #434343;
-      box-shadow: -80px 0 0 80px #43e5f7;
-    }
-
-} */
-
-/* crome */
+@media screen and (max-width: 768px) {
+  .bg-img {
+    background-image: url("/assets/bg-image.webp");
+  }
+}  
 input[type="range"] {
   background-color: #d4d4d4 !important;
 }
 
-/** FF*/
-input[type="range"]::-moz-range-progress {
-  background-color: #43e5f7;
-}
-input[type="range"]::-moz-range-track {
-  background-color: #9a905d;
-}
-/* IE*/
-input[type="range"]::-ms-fill-lower {
-  background-color: #43e5f7;
-}
-input[type="range"]::-ms-fill-upper {
-  background-color: #9a905d;
-}

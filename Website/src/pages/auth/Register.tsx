@@ -63,8 +63,8 @@ const Register: React.FC = () => {
       {loading &&
         <Loader />
       }
-      <div className="w-full max-xs:h-full xs:max-w-md px-3 xxs:px-5 xs:p-6 py-4 bg-white xs:rounded-xl xs:border xs:my-8">
-        <div className="mb-6">
+      <div className="w-full max-xs:h-full xs:max-w-md px-3 xxs:px-5 xs:p-6 py-12 xs:py-4 bg-white xs:rounded-xl xs:border xs:my-8">
+        <div className="mb-12 xs:mb-6">
           <h1 className="text-2xl xxs:text-[32px] xxs:leading-[40px] text-heading font-semibold mb-1.5 xs:mb-2 max-w-md">
             Create your new account
           </h1>
