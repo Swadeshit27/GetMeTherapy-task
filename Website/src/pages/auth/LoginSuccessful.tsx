@@ -3,6 +3,11 @@ import { auth } from "../../firebase"
 
 const LoginSuccessful = () => {
     const navigate = useNavigate()
+    const loggedOut = async () => {
+        await auth.signOut()
+        localStorage.setItem("loggedIn", "false");
+        navigate('/login')
+    }
     return (
         <section className="w-full h-screen flex items-center justify-center bg-img">
             <div className='w-full xs:max-w-md sm:max-w-xl mx-auto bg-white max-xs:rounded-t-3xl xs:rounded-lg px-8 pt-2 xs:py-12 max-xs:h-[60vh] max-xs:mt-auto'>
@@ -23,7 +28,7 @@ const LoginSuccessful = () => {
                     </button>
 
                     <button
-                        onClick={async () => (await auth.signOut(), navigate('/login'))}
+                        onClick={loggedOut}
                         className='max-xs:text-sm  text-para1 text-center mt-6 font-medium'
                     >
                         Logout

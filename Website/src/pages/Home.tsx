@@ -28,6 +28,7 @@ const Home: React.FC = () => {
   const logoutUser = async () => {
     try {
       await auth.signOut();
+      localStorage.setItem("loggedIn", "false");
       navigate('/login')
       toast.success('Logged out successfully!')
     } catch (error: any) {

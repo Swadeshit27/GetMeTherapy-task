@@ -33,7 +33,7 @@ const Login: React.FC = () => {
             setLoading(true);
             const { email, password } = values;
             await signInWithEmailAndPassword(auth, email, password);
-            // toast.success("Login successful");
+            localStorage.setItem("loggedIn", "true");
             navigate("/login-successful");
         } catch (error: any) {
             console.error(error);
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
             setLoading(true);
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
-            // toast.success("Login successful");
+            localStorage.setItem("loggedIn", "true");
             navigate("/login-successful");
         } catch (error: any) {
             console.error(error);

@@ -34,6 +34,7 @@ const Register: React.FC = () => {
       setLoading(true);
       const { email, password } = values;
       await createUserWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("loggedIn", "true");
       toast.success("registration successful");
       navigate("/tracking-screen");
     } catch (error: any) {
@@ -49,6 +50,7 @@ const Register: React.FC = () => {
       setLoading(true);
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
+      localStorage.setItem("loggedIn", "true");
       navigate("/tracking-screen");
     } catch (error: any) {
       console.error(error);

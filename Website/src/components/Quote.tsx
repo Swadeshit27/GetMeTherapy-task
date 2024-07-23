@@ -7,7 +7,7 @@ const Quote = () => {
         quote: 'Part of the happiness of life consists not in fighting battles, but in avoiding them. A masterly retreat is in itself a victory.',
         author: 'Norman Vincent Peale'
     });
-    const [start, setStart] = useState<boolean>(false);
+    // const [start, setStart] = useState<boolean>(false);
 
     const getQuote = async () => {
         try {
@@ -27,14 +27,11 @@ const Quote = () => {
     };
 
     useEffect(() => {
-        if (start) {
-            const interval = setInterval(() => {
-                getQuote();
-            }, 5000);
-            return () => clearInterval(interval);
-        }
-        else getQuote()
-    }, [start]);
+        const interval = setInterval(() => {
+            getQuote();
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <>
@@ -51,7 +48,7 @@ const Quote = () => {
                     ~ {quote?.author}
                 </p>
             </section>
-            <div className="flex items-center justify-center mt-4">
+            {/* <div className="flex items-center justify-center mt-4">
                 <button
                     className="w-56 mx-auto bg-blue-500 py-3 rounded-full z-[99999] "
                     onClick={() => setStart(!start)}>
@@ -59,7 +56,7 @@ const Quote = () => {
                         {start ? 'Stop' : 'Start'} Getting quote
                     </p>
                 </button>
-            </div>
+            </div> */}
         </>
     )
 }

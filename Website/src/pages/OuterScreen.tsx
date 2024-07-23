@@ -33,7 +33,7 @@ const OuterScreen = () => {
     const navigate = useNavigate();
 
     const navigateScreen = () => {
-        auth.onAuthStateChanged(user => {
+        auth.onAuthStateChanged(user => { 
             if (user) navigate('/tracking-screen');
             else navigate('/login');
         })
@@ -45,13 +45,13 @@ const OuterScreen = () => {
                 {slides.map((item, i) => (
                     <>
                         <img
-                            key={i}
+                            key={i + item.imgSrc}
                             className={`w-full h-full object-cover absolute sm:hidden ${index === slides.indexOf(item) ? 'block' : 'hidden'
                                 }`}
                             src={item.imgSrc}
                         />
                         <img
-                            key={i}
+                            key={i + item.bigImg}
                             className={`w-full h-full object-cover absolute max-sm:hidden ${index === slides.indexOf(item) ? 'block' : 'hidden'
                                 }`}
                             src={item.bigImg}
